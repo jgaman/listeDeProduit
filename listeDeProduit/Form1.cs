@@ -23,11 +23,13 @@ namespace listeDeProduit
             ListBox1.DataSource = fichiers;
             
         }
-        
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+
+        public object ListBox1 { get; private set; }
+        private void listBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             FileInfo fichier = (FileInfo)listBox1.SelectedItem;
             lblDateCreation.Text = fichier.CreationTime.ToString();
+
         }
     }
 }
