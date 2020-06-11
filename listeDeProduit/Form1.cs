@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace listeDeProduit
 {
@@ -15,6 +16,9 @@ namespace listeDeProduit
         public Form1()
         {
             InitializeComponent();
+            string chemin = @"C:\Users\jgaman\Documents\GitHub\listeDeProduit\";
+            DirectoryInfo dossier = new DirectoryInfo(chemin);
+            FileInfo[] fichiers = dossier.GetFiles("*.*", SearchOption.TopDirectoryOnly);
         }
 
     }
