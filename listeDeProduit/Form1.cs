@@ -17,9 +17,17 @@ namespace listeDeProduit
         {
             InitializeComponent();
             string chemin = @"C:\Users\jgaman\Documents\GitHub\listeDeProduit\";
+            //IO
             DirectoryInfo dossier = new DirectoryInfo(chemin);
-            FileInfo[] fichiers = dossier.GetFiles("*.*", SearchOption.TopDirectoryOnly);
+            FileInfo[] fichiers = dossier.GetFiles("*.*", SearchOption.AllDirectories);
+            ListBox1.DataSource = fichiers;
+            
         }
-
+        
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FileInfo fichier = (FileInfo)listBox1.SelectedItem;
+            lblDateCreation.Text = fichier.CreationTime.ToString();
+        }
     }
 }
